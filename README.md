@@ -32,5 +32,12 @@ This project uses Flask API to deploy the model and build the web application.
 * seaborn
 * sklearn
 * check requirements.txt
+
+
+### File Descriptions
+* heart.csv is the dataset file
+* heart_disease.ipynb: contains the code of data exploration, preparation and modeling.
+* finalized_model.sav: Is the best performing classisfication model
+* index.py: Flask API that bind between the classification model and the web page.
 ### Conclusion
 This project demonstrates how machine learning can be used to predict the presence of heart disease in a patient. The deployed model can be used as a tool to assist doctors in the diagnosis of heart disease.
