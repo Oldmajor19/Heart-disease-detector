@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart disease detector</title>
+</head>
+<body style="background: radial-gradient(aqua, rgb(21, 90, 90) );">
+    <style>
+        h2, h4 {
+            text-align: center;
+            color: white;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            
+             background-color: rgb(21, 90, 90); 
+             border-radius: 2rem;
+            width: 30%;
+            align-items: center;
+            align-items: center;
+            margin: auto; 
+            padding: 2rem;
+            gap: 1.5rem;
+        }
+        label {
+            color: white;
+            font-weight: 500;
+            font-size: larger;
+        }
+        input, select {
+            background: transparent;
+            border: 1px solid aqua;
+            border-radius: 2rem;
+            color: white;
+            padding: .5rem;
+            width: 100%;
+        }
+        select, input::placeholder {
+            color: white;
+        }
+        option {
+            color: aqua ;
+            background: rgb(21, 90, 90);
+          
+        }
+        .btn-primary {
+            background: aqua;
+            width:35%;
+            padding: 1rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: ease-in-out 400ms;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            border: 1px solid aqua;
+        }
+
+
+   
+    </style>
+    <h4><strong style="color:red">{{result}}</strong></h4>
+    <h2>Heart Disease Predictor</h2>
+
+    <form action = "{{url_for('predict')}}" method ="POST" >
+        <label for="age"> Age</label>
+        <input type="number" id="age" name="age" value=""  required>
+
+        <label for="sex">Sex</label>
+        <select class="form-control" id="sex"  name="sex" required>
+          <option disabled selected value> -- Select an Option -- </option>
+          <option value = "0">Male</option>
+          <option value = "1">Female</option>
+        </select>
+
+        <label for="cp">Chest Pain Type</label>
+        <select class="form-control" id="cp" name = "cp" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">Typical Angina</option>
+            <option value = "1">Atypical Angina</option>
+            <option value = "2">Non-anginal Pain</option>
+            <option value = "3">Asymptomatic</option>
+        </select>
+
+        <label for="trestbps">Resting Blood Pressure in mm Hg</label>
+		<input type="number" class="form-control" id="trestbps" name="trestbps" placeholder="Can be btw 100-200" required>
+
+        <label for="chol">Serum Cholestoral in mg/dl</label>
+        <input type="number" class="form-control" id="chol" name="chol" placeholder="Can be btw 100-400" required>
+
+        <label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+        <select class="form-control" id="fbs" name="fbs"  required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">False</option>
+            <option value = "1">True</option>
+        </select>
+
+        <label for="restecg">Resting ECG Results </label>
+        <select class="form-control" id="restecg" name="restecg" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">Normal</option>
+            <option value = "1">Having ST-T wave abnormality  </option>
+            <option value = "2"> Probable or definite left ventricular hypertrophy  </option>
+        </select>
+
+        <label for="thalach">Maximum Heart Rate</label>
+        <input type="number" class="form-control" id="thalach" name="thalach" placeholder="Can be btw 60-200" required>
+
+        <label for="exang">ST Depression Induced</label>
+        <input type="number" step="any" class="form-control" id="exang" name="exang" placeholder="can either be 0 or 1" required>
+
+        <label for="exang">Exercise Induced Angina </label>
+        <select class="form-control" id="oldpeak" name="oldpeak" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">No</option>
+            <option value = "1">Yes</option>
+        </select>
+
+        <label for="slope">Slope of the Peak Exercise ST Segment </label>
+        <select class="form-control" id="slope" name="slope" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">Upsloping</option>
+            <option value = "1">Flat</option>
+            <option value = "2">Downsloping</option>
+        </select>
+
+        <label for="ca">Number of Vessels Colored by Flourosopy</label>
+        <select class="form-control" id="ca" name = "ca" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "0">0</option>
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+        </select>
+
+        <label for="thal">Thalassemia</label>
+        <select class="form-control" id="thal" name = "thal" required>
+            <option disabled selected value> -- Select an Option -- </option>
+            <option value = "1">Normal</option>
+            <option value = "2">Fixed defect</option>
+            <option value = "3">Reversable defect</option>
+        </select>
+       
+        <input class="btn-primary" type="submit" value="Result">
+
+        <!--Prediction Result-->
+
+        <strong style="color:red">{{result}}</strong>
+    </form> 
+
+
+</body>
+</html>
+</body>
+</html>
